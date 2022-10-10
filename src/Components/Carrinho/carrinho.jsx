@@ -54,8 +54,8 @@ const Carrinho = () => {
             Carrinho de compras <Badge bg="secondary">New</Badge>
           </h3>
 
-          <div className="card-container">
-            <Card>
+          
+            <Card className="card-container">
             <Button variant="danger" onClick={DeleteVenda}>Excluir</Button>
               <div className="img-carrinho">
                 <Card.Img class="img-card" variant="top" src={DolceGabbana} />
@@ -72,7 +72,7 @@ const Carrinho = () => {
                 </div>
               </Card.Body>
             </Card>
-          </div>
+          
         </div>
         <div className="secao-ordem-compra">
           <h3>Ordem de Compra</h3>
