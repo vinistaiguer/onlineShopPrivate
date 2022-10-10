@@ -28,7 +28,7 @@ const NavBar = () => {
 
     const navigateFem = useNavigate("/feminina");
     const navigateMasc = useNavigate("/");
-    const navigatePerfil = useNavigate("/perfil");
+    
     
     return(
         <Navbar key="lg" bg="light" expand="lg" className="mb-3">

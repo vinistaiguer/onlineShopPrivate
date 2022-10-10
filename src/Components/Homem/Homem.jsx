@@ -6,16 +6,22 @@ import Jaqueta from "./Imagens/Jaqueta.jpg"
 import Moletom from "./Imagens/Moletom-branco.jpg"
 import SapatosPretos from "./Imagens/Sapato-preto.jpg"
 import { Button,Container,Card } from "react-bootstrap";
-
-
 import Carrossel from "../Carousel/Carousel";
-
 import "./CSS/styles.css"
+import { useNavigate } from "react-router-dom";
+
 console.log("TESTE")
 
-const Homem = () => {
-    return (
 
+
+const Homem = () => {
+
+    const navigateProduto = useNavigate("/produto") 
+
+
+
+    return (
+        
         <div>
             <NavBar />
 
@@ -31,7 +37,7 @@ const Homem = () => {
                         <Card.Text>
                             Moletom de capuz Branco, com estampa artística
                         </Card.Text>
-                        <Button variant="danger">Comprar</Button>
+                        <Button onClick={() =>  { navigateProduto("/produto") }} variant="danger">Comprar</Button>
                     </Card.Body>
                 </Card>
                 <Card className="m-4" style={{ width: '18rem' }}>
@@ -41,7 +47,7 @@ const Homem = () => {
                         <Card.Title>Camiseta Básica</Card.Title>
                             Camiseta slim, minimalista, com estampa da Logo 
                         </Card.Text>
-                        <Button variant="danger">Comprar</Button>
+                        <Button onClick={() =>  { navigateProduto("/produto") }} variant="danger">Comprar</Button>
                     </Card.Body>
                 </Card>
                 <Card className="m-4" style={{ width: '18rem' }}>
@@ -51,7 +57,7 @@ const Homem = () => {
                         <Card.Text>
                            Sapato social preto, com fivela 
                         </Card.Text>
-                        <Button variant="danger">Comprar</Button>
+                        <Button onClick={() =>  { navigateProduto("/produto") }} variant="danger">Comprar</Button>
                     </Card.Body>
                 </Card>
                 <Card className="m-4" style={{ width: '18rem' }}>
@@ -61,13 +67,14 @@ const Homem = () => {
                         <Card.Text>
                            Jaqueta de botão, com estampa artística
                         </Card.Text>
-                        <Button variant="danger">Comprar</Button>
+                        <Button onClick={() =>  { navigateProduto("/produto") }} variant="danger">Comprar</Button>
                     </Card.Body>
                 </Card>
             </Container>
 
 
             <Footer />
+            
         </div>
     )
 }

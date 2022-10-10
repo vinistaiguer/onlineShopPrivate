@@ -10,10 +10,12 @@ import Favoritos from './Components/PerfilUsuario/Favoritos/index.jsx';
 import Pagamento from './Components/PerfilUsuario/Pagamento/index.jsx';
 import Configuracoes from './Components/PerfilUsuario/Configuracoes/index.jsx';
 import Ajuda from './Components/PerfilUsuario/Ajuda/index.jsx';
-import Login from './Components/Login/Login.jsx'
-import Cadastro from './Components/Cadastro/Cadastro.jsx'
+import Login from './Components/Login/Login.jsx';
+import Cadastro from './Components/Cadastro/Cadastro.jsx';
+import Cesta from './Components/Produto/produto.jsx';
+import Carrinho from './Components/Carrinho/carrinho.jsx'
+import './App.css';
 
-import './App.css'
 
 
 
@@ -22,6 +24,8 @@ const App = () => {
     return (
       <BrowserRouter>
         <Routes>
+          <Route path="/carrinho" element={<Carrinho/>}/>
+          <Route path="/produto" element={<Cesta/>}/>
           <Route path="/feminina" element={<Mulher />}/>
           <Route path="/"exact element={<Homem />}/>
           <Route path="/login" element={<Login />}/>
