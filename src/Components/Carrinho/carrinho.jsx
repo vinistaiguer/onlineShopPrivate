@@ -12,7 +12,8 @@ import "./CSS/styles.css"
 const Carrinho = () => {
   const [listaProdutos, setListaProdutos] = useState([])
   const [qtd, setQtd] = useState(1)
-  const [card,setCard] = useState("")
+  const [card,setCard] = useState(true)
+  const [venda_id,setVenda] = useState(33)
   const titulo = JSON.stringify(listaProdutos.map((e) => { return e.nome }))
   const nome = titulo.replace("[", "").replace("]", "").replace(/"/g, '')
   const preco = JSON.stringify(listaProdutos.map((e) => { return e.valor })).replace("[", "").replace("]", "")
@@ -28,16 +29,17 @@ const Carrinho = () => {
 
         }
       ).catch((error) => { console.log(error) })
-
-        DeleteVenda().then(
-          alert("Deu certo"),
-          setCard("Delete completo")
-        ).catch(
-          (error)=>{console.log(error)}
-        )
-
-
     }, [])
+
+    function DeletarCard(){
+      DeleteVenda({venda_id}).then(
+        (response)=>{ 
+          alert("Sucess")
+        }
+      ).catch(
+        (error)=>{console.log(error)}
+      )
+    }
 
 
     
@@ -55,8 +57,10 @@ const Carrinho = () => {
           </h3>
 
           
-            <Card className="card-container">
-            <Button variant="danger" onClick={DeleteVenda}>Excluir</Button>
+            <Card  value={venda_id} className="card-container">
+            <Button variant="danger" onClick={()=>{
+                DeletarCard()
+              }}>Excluir</Button>
               <div className="img-carrinho">
                 <Card.Img class="img-card" variant="top" src={DolceGabbana} />
               </div>

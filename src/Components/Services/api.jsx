@@ -88,21 +88,28 @@ function ProdutosMulher(){
     })
 }
 
-function DeleteVenda(){
-    return axios({
-        method:"delete",
-        url:"http://localhost:5000/venda-produto/<int:venda_prod_id>",
-        headers: { "Access-Control-Allow-Origin": "*" }
-    })
-}
-
 function CadastroVenda(data){
     return axios({
         method:"post",
         url:"http://localhost:5000/venda/cadastro",
-        data:data
+        data:data,
+        headers: { "Access-Control-Allow-Origin": "*" }
     })
 }
 
+function DeleteVenda(data){
+    return axios({
+        method:"delete",
+        url:"http://localhost:5000/venda/",
+        params:data,
+        headers: { "Access-Control-Allow-Origin": "*" ,
+        "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, POST, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Max-Age": "86400",
+        "Access-Content-Type":"*"
+         },
+          
+    })
+}
 
 export {Teste,ApiLogin,ApiCadastro,CadastroProdutosMulher,ProdutosMulher,DeleteVenda,CadastroVenda}

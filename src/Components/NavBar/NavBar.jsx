@@ -33,7 +33,7 @@ const NavBar = () => {
     return(
         <Navbar key="lg" bg="light" expand="lg" className="mb-3">
             <Container fluid>
-              <Navbar.Brand href="."><Image id="Logo-img" src={Logo} /></Navbar.Brand>
+              <Navbar.Brand to="/" as={Navigator}><Image id="Logo-img" src={Logo} /></Navbar.Brand>
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
               <Navbar.Offcanvas
                 id={`offcanvasNavbar-expand-lg`}
@@ -62,9 +62,8 @@ const NavBar = () => {
                       <NavDropdown.Item to="/login" as={Navigator}>
                         Login
                       </NavDropdown.Item>
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action5">
-                        Something else here
+                      <NavDropdown.Item to="/cadastro" as={Navigator}>
+                        Cadastre-se
                       </NavDropdown.Item>
                     </NavDropdown>
                   <Form className="d-flex">

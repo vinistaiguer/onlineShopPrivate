@@ -18,10 +18,13 @@ import './CSS/styles.css'
 
 
 
+
 export default function Cesta() {
   const [listaProdutos, setListaProdutos] = useState([])
   const [qtd, setQtd] = useState(0)
-
+  const [usuario_id,setUsuario_id] = useState(1)
+  const [total,setTotal] = useState(Number)
+ 
 
 
   const navigateCarrinho = useNavigate("/carrinho")
@@ -45,8 +48,19 @@ export default function Cesta() {
 
         }
       ).catch((error) => { console.log(error) })
-
+    
     }, [])
+    function  CadastroVendaCarrinho(){
+      CadastroVenda({usuario_id,total}).then(
+        (response) => {
+          const  dados = response.data
+          console.log(dados)
+          alert("Funcionou")}
+      ).catch(
+        (error)=>{console.log(error)}
+      )
+    }
+    
 
     function verificarTamanho(value){
 
@@ -58,8 +72,7 @@ export default function Cesta() {
 
   } 
     
-    
-
+   
 
   return (
     <>
@@ -147,9 +160,12 @@ export default function Cesta() {
             <h5>{qtd + " produto(s)"}</h5>
             <div className='d-flex align-items-end '>
               <h5 className='pe-3'>Total:</h5>
-              <h3>{(num * qtd) + ",00"}</h3>
+              <h3 onChange={(e)=>{setTotal(e.target.value)}}>{(num * qtd) + ",00"}</h3>
             </div>
-            <Button onClick={() => { navigateCarrinho("/carrinho") }} className='comprar btn btn-success'>Adicionar ao Carrinho</Button>
+            <Button onClick={()=>{
+              CadastroVendaCarrinho()
+              navigateCarrinho("/carrinho")
+            }} className='comprar btn btn-success'>Adicionar ao Carrinho</Button>
           </div>
         </div>
       </div>
