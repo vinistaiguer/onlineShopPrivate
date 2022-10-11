@@ -51,6 +51,7 @@ const NavBar = () => {
                     <Button id="btn_fem" className="mx-4" variant="outline-danger" onClick={() => navigateFem("/feminina")}  >Feminino</Button>
                   </Nav>
                   <Nav className="justify-content-end mx-auto">
+                    <Nav.Link href="#">Venda conosco</Nav.Link>
                     <Nav.Link href="#">Carrinho</Nav.Link>
                   </Nav>
                   <NavDropdown
